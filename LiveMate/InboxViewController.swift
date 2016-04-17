@@ -1,17 +1,19 @@
 //
-//  ArtistProfileViewController.swift
+//  InboxViewController.swift
 //  LiveMate
 //
-//  Created by zeus medina on 3/25/16.
+//  Created by zeus medina on 4/12/16.
 //  Copyright © 2016 Zeus. All rights reserved.
 //
 
 import UIKit
+import Parse
 
-class ArtistProfileViewController: UIViewController {
+class InboxViewController: UIViewController {
 
-    @IBOutlet weak var saveProfileButton: UIButton!
+    @IBOutlet weak var messageTextField: UITextField!
     
+    @IBOutlet weak var sendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,23 @@ class ArtistProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onSendButton(sender: AnyObject) {
+        
+        var message = PFObject(className:"Message")
+        
+        message["text"] = messageTextField.text
+        
+        message.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                print("The message has been saved")
+            } else {
+                // There was a problem, check error.description
+            }
+        }
 
-    @IBAction func onSaveProfileButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        
     }
 
     /*
