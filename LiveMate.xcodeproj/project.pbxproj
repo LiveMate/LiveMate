@@ -16,6 +16,9 @@
 		CEAF34FE1CBDBBC30044D83F /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF34FD1CBDBBC30044D83F /* InboxViewController.swift */; };
 		CEAF35001CBE21EB0044D83F /* QueryResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF34FF1CBE21EB0044D83F /* QueryResultsViewController.swift */; };
 		CEAF35031CBEB4D40044D83F /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF35021CBEB4D40044D83F /* ArtistTableViewCell.swift */; };
+		CEAF35051CC423A90044D83F /* BookArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF35041CC423A90044D83F /* BookArtistViewController.swift */; };
+		CEAF35071CC441C20044D83F /* SendBookRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF35061CC441C20044D83F /* SendBookRequestViewController.swift */; };
+		CEAF350B1CC47B5C0044D83F /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF350A1CC47B5C0044D83F /* InboxTableViewCell.swift */; };
 		CEC925B51C9BC8E300FCDC78 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC925B41C9BC8E300FCDC78 /* ArtistData.swift */; };
 		CECC663D1CA51E6800262A8E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC663C1CA51E6800262A8E /* ProfileViewController.swift */; };
 		CEF93C261C97AE9400960626 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF93C251C97AE9400960626 /* LoginViewController.swift */; };
@@ -34,6 +37,9 @@
 		CEAF34FD1CBDBBC30044D83F /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		CEAF34FF1CBE21EB0044D83F /* QueryResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryResultsViewController.swift; sourceTree = "<group>"; };
 		CEAF35021CBEB4D40044D83F /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		CEAF35041CC423A90044D83F /* BookArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookArtistViewController.swift; sourceTree = "<group>"; };
+		CEAF35061CC441C20044D83F /* SendBookRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendBookRequestViewController.swift; sourceTree = "<group>"; };
+		CEAF350A1CC47B5C0044D83F /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		CEC925B41C9BC8E300FCDC78 /* ArtistData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
 		CECC663C1CA51E6800262A8E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CEF93C251C97AE9400960626 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				CEAF35021CBEB4D40044D83F /* ArtistTableViewCell.swift */,
+				CEAF350A1CC47B5C0044D83F /* InboxTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				CE90FCA31CA62B3A00813DF9 /* ArtistProfileViewController.swift */,
 				CEAF34FD1CBDBBC30044D83F /* InboxViewController.swift */,
 				CEAF34FF1CBE21EB0044D83F /* QueryResultsViewController.swift */,
+				CEAF35041CC423A90044D83F /* BookArtistViewController.swift */,
+				CEAF35061CC441C20044D83F /* SendBookRequestViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -257,10 +266,13 @@
 				CEAF34FE1CBDBBC30044D83F /* InboxViewController.swift in Sources */,
 				CEF93C261C97AE9400960626 /* LoginViewController.swift in Sources */,
 				CECC663D1CA51E6800262A8E /* ProfileViewController.swift in Sources */,
+				CEAF35051CC423A90044D83F /* BookArtistViewController.swift in Sources */,
 				CE90FCA41CA62B3A00813DF9 /* ArtistProfileViewController.swift in Sources */,
 				CE6EC3781C93FB8100D70158 /* AppDelegate.swift in Sources */,
+				CEAF35071CC441C20044D83F /* SendBookRequestViewController.swift in Sources */,
 				CEAF35031CBEB4D40044D83F /* ArtistTableViewCell.swift in Sources */,
 				CEAF35001CBE21EB0044D83F /* QueryResultsViewController.swift in Sources */,
+				CEAF350B1CC47B5C0044D83F /* InboxTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

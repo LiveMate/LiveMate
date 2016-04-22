@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -245,7 +245,7 @@
         <!--Inbox-->
         <scene sceneID="jP4-JY-fFX">
             <objects>
-                <viewController id="c4i-bS-cAR" customClass="InboxViewController" customModule="LiveMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="c4i-bS-cAR" customClass="InboxViewController" customModule="LiveMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bh8-oI-Ilt"/>
                         <viewControllerLayoutGuide type="bottom" id="Wjk-bc-chb"/>
@@ -254,32 +254,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-zL-LXR">
-                                <rect key="frame" x="0.0" y="28" width="320" height="39"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4h-JY-0bs">
-                                        <rect key="frame" x="271" y="5" width="36" height="30"/>
-                                        <state key="normal" title="Send"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WeX-ii-HvZ">
+                                <rect key="frame" x="0.0" y="28" width="320" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxTableViewCell" rowHeight="83" id="TKE-PZ-dMm" customClass="InboxTableViewCell" customModule="LiveMate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TKE-PZ-dMm" id="fJ4-wD-rgJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-wk-aOP">
+                                                    <rect key="frame" x="14" y="31" width="133" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="070-oP-DPw">
+                                                    <rect key="frame" x="171" y="26" width="52" height="30"/>
+                                                    <state key="normal" title="Decline">
+                                                        <color key="titleColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onDeclineButton:" destination="TKE-PZ-dMm" eventType="touchUpInside" id="5Oq-QR-08h"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xA-4M-FUu">
+                                                    <rect key="frame" x="263" y="26" width="49" height="30"/>
+                                                    <state key="normal" title="Accept">
+                                                        <color key="titleColor" red="0.14901960784313725" green="0.65098039215686276" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onAcceptButton:" destination="TKE-PZ-dMm" eventType="touchUpInside" id="6UH-Ez-EJd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
                                         <connections>
-                                            <action selector="onSendButton:" destination="c4i-bS-cAR" eventType="touchUpInside" id="vjd-0Q-TKU"/>
+                                            <outlet property="acceptButton" destination="9xA-4M-FUu" id="SlY-DP-zPv"/>
+                                            <outlet property="addressLabel" destination="Yel-wk-aOP" id="HsY-Iz-zI3"/>
+                                            <outlet property="declineButton" destination="070-oP-DPw" id="USx-zG-wDg"/>
                                         </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="66f-Hx-S6w">
-                                        <rect key="frame" x="8" y="5" width="255" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.92641879140206107" green="0.92641879140206107" blue="0.92641879140206107" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inbox" id="IHI-9O-HHF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="messageTextField" destination="66f-Hx-S6w" id="3YQ-PV-Yaa"/>
-                        <outlet property="sendButton" destination="A4h-JY-0bs" id="GNv-hQ-Wdu"/>
+                        <outlet property="tableView" destination="WeX-ii-HvZ" id="CHO-uG-4ko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56f-Qk-NMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -339,7 +365,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="isj-qD-kTa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="170.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq1-dL-QGo">
                                                     <rect key="frame" x="8" y="18" width="304" height="25"/>
@@ -366,6 +392,7 @@
                                             <outlet property="headerImageView" destination="isj-qD-kTa" id="4cp-ka-XVC"/>
                                             <outlet property="locationLabel" destination="Gnd-2n-jib" id="CuH-j1-nVk"/>
                                             <outlet property="priceLabel" destination="Ama-4K-dWo" id="dbX-VT-GCS"/>
+                                            <segue destination="qnz-wf-wMT" kind="show" id="agB-Yy-40d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -383,10 +410,10 @@
             </objects>
             <point key="canvasLocation" x="2036" y="-187"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Artist View Controller-->
         <scene sceneID="FFq-fn-4Ak">
             <objects>
-                <viewController id="qnz-wf-wMT" sceneMemberID="viewController">
+                <viewController id="qnz-wf-wMT" customClass="BookArtistViewController" customModule="LiveMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IRl-53-l3h"/>
                         <viewControllerLayoutGuide type="bottom" id="kOO-ed-YUa"/>
@@ -394,13 +421,89 @@
                     <view key="view" contentMode="scaleToFill" id="vzF-yw-SHj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8St-q4-PIh">
+                                <rect key="frame" x="0.0" y="466" width="320" height="53"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Request To Book!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Hcq-az-q5n" kind="show" id="Sst-uc-a1G"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-dj-Lbn">
+                                <rect key="frame" x="20" y="93" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="artistNameLabel" destination="kWO-dj-Lbn" id="wEJ-md-8in"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45b-1w-rnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2413" y="-187"/>
+        </scene>
+        <!--Send Book Request View Controller-->
+        <scene sceneID="Mej-rQ-jZK">
+            <objects>
+                <viewController id="Hcq-az-q5n" customClass="SendBookRequestViewController" customModule="LiveMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lSJ-ja-Yg0"/>
+                        <viewControllerLayoutGuide type="bottom" id="htT-1g-nVz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1io-mL-9vi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azm-uq-oEC">
+                                <rect key="frame" x="0.0" y="466" width="320" height="53"/>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.65098039215686276" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Send Request">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSendRequestButton:" destination="Hcq-az-q5n" eventType="touchUpInside" id="3nA-gg-1RV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-Qn-Fee">
+                                <rect key="frame" x="27" y="134" width="257" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIt-EQ-SBV">
+                                <rect key="frame" x="171" y="92" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send request to:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKX-GY-Aun">
+                                <rect key="frame" x="27" y="92" width="127" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addressTextField" destination="uye-Qn-Fee" id="jqf-Jk-L1i"/>
+                        <outlet property="artistNameLabel" destination="CIt-EQ-SBV" id="dv5-b3-aUb"/>
+                        <outlet property="sendRequestButton" destination="azm-uq-oEC" id="Lij-ea-rkY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BG6-cY-SKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2802" y="-187"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8hr-Fv-3gO">

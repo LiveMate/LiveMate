@@ -9,41 +9,128 @@
 import UIKit
 import Parse
 
-class InboxViewController: UIViewController {
-
-    @IBOutlet weak var messageTextField: UITextField!
+class InboxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var sendButton: UIButton!
+    
+    @IBOutlet weak var tableView: UITableView!
+    var data: [PFObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector:
+            "callParseBackendForBookingRequests", userInfo: nil, repeats: true)
+    
+        
     }
+    
+    
+    func callParseBackendForBookingRequests() {
+        let query = PFQuery(className: "BookingRequests")
+        if let user = PFUser.currentUser() {
+            if (PFUser.currentUser()!["isArtist"] as! Bool == false) {
+                query.whereKey("sender", equalTo: PFUser.currentUser()!)
+            } else {
+             query.whereKey("receiver", equalTo: PFUser.currentUser()!["artistReference"])
+            }
+        } else {
+            //User has attempted logout so to avoid this crashing we check if currentuser exists
+        }
+        
+        query.orderByDescending("createdAt")
+        query.limit = 5
+        
+        query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) ->
+            Void in
+            
+            if let media = media {
+                
+                self.data = media
+                self.tableView.reloadData()
+                
+            }
+            else {
+                if let error = error {
+                    NSLog("Error:\(error)")
+                }
+                
+            }
+        }
+        
+    }
+    
+    //Code below handles filling of tableview data
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if (data != nil) {
+            return data!.count
+        }
+        else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("InboxTableViewCell", forIndexPath: indexPath) as! InboxTableViewCell
+        
+        if (PFUser.currentUser()!["isArtist"] as! Bool == false) {
+            cell.acceptButton.hidden = true
+            cell.declineButton.hidden = true
+        }
+        
+        /*
+        if (data?[indexPath.section]["headerImage"] != nil) {
+            let imageFile = data?[indexPath.section]["headerImage"] as! PFFile
+            
+            imageFile.getDataInBackgroundWithBlock({ (theData: NSData?, error: NSError?) ->
+                Void in
+                
+                // Failure to get image
+                if let error = error {
+                    // Log Failure
+                    NSLog("Error loading image at cell \(indexPath.section)")
+                }
+                    // Success getting image
+                else {
+                    // Get image and set to cell's content
+                    let image = UIImage(data: theData!)
+                    cell.headerImageView.image = image
+                }
+            })
+            
+
+        }
+        */
+        if (data?[indexPath.section]["eventAddress"] != nil) {
+            let eventAddress = data![indexPath.section]["eventAddress"] as! String
+            cell.addressLabel.text = eventAddress
+        }
+        
+    
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated:true)
+    }
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onSendButton(sender: AnyObject) {
-        
-        var message = PFObject(className:"Message")
-        
-        message["text"] = messageTextField.text
-        
-        message.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                print("The message has been saved")
-            } else {
-                // There was a problem, check error.description
-            }
-        }
 
-        
-    }
 
     /*
     // MARK: - Navigation

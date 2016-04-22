@@ -45,7 +45,8 @@ class LoginViewController: UIViewController {
         newUser.username = usernameField.text
         newUser.password = passwordField.text
         newUser.email = emailField.text
-        
+        newUser["isArtist"] = false
+    
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 print("Created a new user!")
