@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class InboxTableViewCell: UITableViewCell {
-
+    var bookRequest: PFObject!
+    
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var declineButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
@@ -26,11 +28,13 @@ class InboxTableViewCell: UITableViewCell {
     }
 
     @IBAction func onAcceptButton(sender: AnyObject) {
-        
+        bookRequest["status"] = true
+        bookRequest.saveInBackground()
     }
     
     @IBAction func onDeclineButton(sender: AnyObject) {
-        
+        bookRequest["status"] = false
+        bookRequest.saveInBackground()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

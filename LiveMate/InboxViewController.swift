@@ -41,7 +41,8 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             //User has attempted logout so to avoid this crashing we check if currentuser exists
         }
-        
+        query.includeKey("sender")
+        query.includeKey("receiver")
         query.orderByDescending("createdAt")
         query.limit = 5
         
@@ -81,10 +82,19 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("InboxTableViewCell", forIndexPath: indexPath) as! InboxTableViewCell
+        cell.bookRequest = data?[indexPath.section]
         
         if (PFUser.currentUser()!["isArtist"] as! Bool == false) {
             cell.acceptButton.hidden = true
             cell.declineButton.hidden = true
+            if (data?[indexPath.section]["receiver"] != nil) {
+                let artistName = data?[indexPath.section]["receiver"]["artistName"]
+                cell.bookingRequestNameLabel.text = artistName! as! String
+            }
+            
+        } else {
+            let senderName = data?[indexPath.section]["sender"]["username"]
+            cell.bookingRequestNameLabel.text = senderName! as! String
         }
         
         /*
@@ -110,11 +120,26 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         }
         */
+        
+        //Set address label
         if (data?[indexPath.section]["eventAddress"] != nil) {
             let eventAddress = data![indexPath.section]["eventAddress"] as! String
             cell.addressLabel.text = eventAddress
         }
         
+        //Set date label
+        if (data?[indexPath.section]["date"] != nil) {
+            let date = data![indexPath.section]["date"] as! String
+            cell.dateLabel.text = date
+        }
+        
+        //Set status label
+        if (data?[indexPath.section]["status"] == nil) {
+            cell.statusOfBookingLabel.text = "Pending..."
+        } else {
+            let status = data![indexPath.section]["status"] as! String
+            cell.statusOfBookingLabel.text = status
+        }
     
         return cell
     }
