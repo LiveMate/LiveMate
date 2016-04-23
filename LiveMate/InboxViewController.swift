@@ -94,7 +94,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         } else {
             let senderName = data?[indexPath.section]["sender"]["username"]
-            cell.bookingRequestNameLabel.text = senderName! as! String
+            cell.bookingRequestNameLabel.text = "From" + (senderName! as! String)
         }
         
         /*
@@ -137,8 +137,12 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
         if (data?[indexPath.section]["status"] == nil) {
             cell.statusOfBookingLabel.text = "Pending..."
         } else {
-            let status = data![indexPath.section]["status"] as! String
-            cell.statusOfBookingLabel.text = status
+            let status = data![indexPath.section]["status"] as! Bool
+            if(status == true) {
+                cell.statusOfBookingLabel.text = "Accepted!"
+            } else {
+            cell.statusOfBookingLabel.text = "Declined"
+            }
         }
     
         return cell
