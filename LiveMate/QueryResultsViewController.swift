@@ -20,6 +20,7 @@ class QueryResultsViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .None
         
         callParseBackend()
         // Do any additional setup after loading the view.
@@ -110,6 +111,10 @@ class QueryResultsViewController: UIViewController, UITableViewDelegate, UITable
             cell.priceLabel.text = "$" + (data![indexPath.section]["price"] as! String)
         }
         
+        if (data?[indexPath.section]["genre"] != nil) {
+            cell.genreLabel.text = (data![indexPath.section]["genre"] as! String)
+        }
+        
         
         return cell
     }
@@ -129,15 +134,15 @@ class QueryResultsViewController: UIViewController, UITableViewDelegate, UITable
         // Pass the selected object to the new view controller.
         
         let cell = sender as! UITableViewCell
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.grayColor()
+        //let backgroundView = UIView()
+        //backgroundView.backgroundColor = UIColor.grayColor()
         
-        cell.selectedBackgroundView = backgroundView
+        //cell.selectedBackgroundView = backgroundView
         let indexPath = tableView.indexPathForCell(cell)
         let artist = data![indexPath!.section]
         let bookArtistViewController = segue.destinationViewController as! BookArtistViewController
         bookArtistViewController.artist = artist
-        cell.selectionStyle = .None
+        //cell.selectionStyle = .None
         
     }
     

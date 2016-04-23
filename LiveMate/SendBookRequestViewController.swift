@@ -16,7 +16,14 @@ class SendBookRequestViewController: UIViewController {
     
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var addressTextField: UITextField!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +43,14 @@ class SendBookRequestViewController: UIViewController {
         bookRequest["eventAddress"] = addressTextField.text
         bookRequest["sender"] = PFUser.currentUser()
         bookRequest["receiver"] = artist
+        
+        //Get date info
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let stringDate = dateFormatter.stringFromDate(datePicker.date)
+        bookRequest["date"] = stringDate
         
         bookRequest.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

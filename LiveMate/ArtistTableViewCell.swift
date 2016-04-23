@@ -12,6 +12,7 @@ class ArtistTableViewCell: UITableViewCell {
 
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!

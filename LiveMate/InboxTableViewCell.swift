@@ -14,6 +14,11 @@ class InboxTableViewCell: UITableViewCell {
     @IBOutlet weak var declineButton: UIButton!
     @IBOutlet weak var acceptButton: UIButton!
     
+    @IBOutlet weak var bookingRequestNameLabel: UILabel!
+    
+    @IBOutlet weak var statusOfBookingLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

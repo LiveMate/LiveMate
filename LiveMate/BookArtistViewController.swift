@@ -16,12 +16,52 @@ class BookArtistViewController: UIViewController {
   
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var genreLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var bioLabel: UILabel!
+    
+    @IBOutlet weak var headerImage:
+    UIImageView!
+    
+    @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         artistNameLabel.text = artist["artistName"] as? String
+        genreLabel.text = artist["genre"] as? String
+        priceLabel.text = "$" + (artist["price"] as? String)!
+        locationLabel.text = artist["location"] as? String
+        bioLabel.text = artist["artistBio"] as? String
+        
+            let imageFile = artist["headerImage"] as! PFFile
+            
+            imageFile.getDataInBackgroundWithBlock({ (theData: NSData?, error: NSError?) ->
+                Void in
+                
+                // Failure to get image
+                if let error = error {
+                    // Log Failure
+                }
+                    // Success getting image
+                else {
+                    // Get image and set to cell's content
+                    let image = UIImage(data: theData!)
+                    self.headerImage.image = image
+                }
+            })
+        
+        let embedID = artist["youtubeId"]
+        let myURL : NSURL = NSURL(string: "https://www.youtube.com/embed/\(embedID)")!
+        //Note: use the "embed" address instead of the "watch" address.
+        let myURLRequest : NSURLRequest = NSURLRequest(URL: myURL)
+        self.webView.loadRequest(myURLRequest)
+    
     }
 
     override func didReceiveMemoryWarning() {
