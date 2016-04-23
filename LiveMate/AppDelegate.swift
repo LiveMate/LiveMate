@@ -49,11 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Creates the logout action observer
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: logoutNotification, object: nil)
         
-        
+        //Creates the booking submission action observer
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "userSubmittedBookingRequest", name: userSubmittedBookingRequestNotification, object: nil)
         // Checks if there's user already logged, and skips the login screen if so.
         
         if (PFUser.currentUser() != nil) {
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
             
             window?.rootViewController = viewController
             
@@ -66,6 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = storyboard.instantiateInitialViewController()! as UIViewController
         window?.rootViewController = vc
     }
+    /*
+    func userSubmittedBookingRequest() {
+        let vc = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as! UITabBarController
+        window?.rootViewController = vc
+    }
+    */
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

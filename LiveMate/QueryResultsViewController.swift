@@ -8,12 +8,15 @@
 
 import UIKit
 import Parse
+import Foundation
 class QueryResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     @IBOutlet weak var tableView: UITableView!
     
     var data: [PFObject]?
+    var filteredData: [PFObject]?
+    var locationQuery: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,16 @@ class QueryResultsViewController: UIViewController, UITableViewDelegate, UITable
             
             if let media = media {
                 
-                self.data = media
+                self.filteredData = media.filter({(dataItem: PFObject) -> Bool in
+                    // If dataItem matches the searchText, return true to include it
+                    if (dataItem["location"].rangeOfString(self.locationQuery, options: .CaseInsensitiveSearch).toRange()) != nil {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+                
+                self.data = self.filteredData
                 self.tableView.reloadData()
                 
             }

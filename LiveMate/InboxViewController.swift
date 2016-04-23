@@ -69,6 +69,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if (data != nil) {
+
             return data!.count
         }
         else {
@@ -94,7 +95,7 @@ class InboxViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         } else {
             let senderName = data?[indexPath.section]["sender"]["username"]
-            cell.bookingRequestNameLabel.text = "From" + (senderName! as! String)
+            cell.bookingRequestNameLabel.text = "From " + (senderName! as! String)
         }
         
         /*

@@ -12,11 +12,12 @@ import Parse
 //This class manges the Artist User type
 class ArtistData: NSObject {
     
-    func userCreatedArtistProfile() {
+    func userCreatedArtistProfile(location: String, price: String, name: String, genre: String, youtubeUrl: String) {
         let artist = PFObject(className: "ArtistData")
-        artist["author"] = PFUser.currentUser()
-        artist["location"] = "Tempe, AZ"
-        artist["price"] = 55
+        let user = PFUser.currentUser()
+        artist["author"] = user
+        artist["location"] = location
+        artist["price"] = price
         
         artist.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in

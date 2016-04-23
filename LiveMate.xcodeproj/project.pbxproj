@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1826C9D1F2FDBB9FF1556C13 /* Pods_LiveMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D614BFFD415310A64E2EA6E6 /* Pods_LiveMate.framework */; };
+		CE42BAB21CCB49E700BA8E08 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42BAB11CCB49E700BA8E08 /* TabBarViewController.swift */; };
+		CE42BAB41CCC19C100BA8E08 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42BAB31CCC19C100BA8E08 /* ExploreViewController.swift */; };
+		CE42BAB81CCC3B8E00BA8E08 /* ImageAndYoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42BAB71CCC3B8E00BA8E08 /* ImageAndYoutubeViewController.swift */; };
 		CE6EC3781C93FB8100D70158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EC3771C93FB8100D70158 /* AppDelegate.swift */; };
 		CE6EC37D1C93FB8100D70158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6EC37B1C93FB8100D70158 /* Main.storyboard */; };
 		CE6EC37F1C93FB8100D70158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6EC37E1C93FB8100D70158 /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		1717C6FE9BCBAD0C47770765 /* Pods-LiveMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiveMate/Pods-LiveMate.release.xcconfig"; sourceTree = "<group>"; };
 		40D7F9B9DDA6B03D2C5ABC9E /* Pods-LiveMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LiveMate/Pods-LiveMate.debug.xcconfig"; sourceTree = "<group>"; };
+		CE42BAB11CCB49E700BA8E08 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		CE42BAB31CCC19C100BA8E08 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		CE42BAB71CCC3B8E00BA8E08 /* ImageAndYoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAndYoutubeViewController.swift; sourceTree = "<group>"; };
 		CE6EC3741C93FB8100D70158 /* LiveMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6EC3771C93FB8100D70158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6EC37C1C93FB8100D70158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +133,9 @@
 				CEAF34FF1CBE21EB0044D83F /* QueryResultsViewController.swift */,
 				CEAF35041CC423A90044D83F /* BookArtistViewController.swift */,
 				CEAF35061CC441C20044D83F /* SendBookRequestViewController.swift */,
+				CE42BAB11CCB49E700BA8E08 /* TabBarViewController.swift */,
+				CE42BAB31CCC19C100BA8E08 /* ExploreViewController.swift */,
+				CE42BAB71CCC3B8E00BA8E08 /* ImageAndYoutubeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,12 +275,15 @@
 				CEAF34FE1CBDBBC30044D83F /* InboxViewController.swift in Sources */,
 				CEF93C261C97AE9400960626 /* LoginViewController.swift in Sources */,
 				CECC663D1CA51E6800262A8E /* ProfileViewController.swift in Sources */,
+				CE42BAB21CCB49E700BA8E08 /* TabBarViewController.swift in Sources */,
 				CEAF35051CC423A90044D83F /* BookArtistViewController.swift in Sources */,
 				CE90FCA41CA62B3A00813DF9 /* ArtistProfileViewController.swift in Sources */,
 				CE6EC3781C93FB8100D70158 /* AppDelegate.swift in Sources */,
 				CEAF35071CC441C20044D83F /* SendBookRequestViewController.swift in Sources */,
 				CEAF35031CBEB4D40044D83F /* ArtistTableViewCell.swift in Sources */,
+				CE42BAB41CCC19C100BA8E08 /* ExploreViewController.swift in Sources */,
 				CEAF35001CBE21EB0044D83F /* QueryResultsViewController.swift in Sources */,
+				CE42BAB81CCC3B8E00BA8E08 /* ImageAndYoutubeViewController.swift in Sources */,
 				CEAF350B1CC47B5C0044D83F /* InboxTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

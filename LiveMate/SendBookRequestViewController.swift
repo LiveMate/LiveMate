@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+//let userSubmittedBookingRequestNotification = "User Submitted Request Notification"
+
 class SendBookRequestViewController: UIViewController {
 
     var artist: PFObject!
@@ -56,6 +58,8 @@ class SendBookRequestViewController: UIViewController {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
+                // NSNotificationCenter.defaultCenter().postNotificationName(userSubmittedBookingRequestNotification, object: nil)
+                
             } else {
                 // There was a problem, check error.description
             }
