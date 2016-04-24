@@ -197,16 +197,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB7-WE-1Fa">
-                                <rect key="frame" x="29" y="513" width="260" height="42"/>
-                                <color key="backgroundColor" red="0.18823529411764706" green="0.63921568627450975" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save Profile">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSaveProfileButton:" destination="Uh4-SP-ZhM" eventType="touchUpInside" id="dMM-2g-vtm"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick your Alias!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NQy-uW-ZYA">
                                 <rect key="frame" x="20" y="315" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -235,7 +225,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-NW-2g0">
-                                <rect key="frame" x="29" y="463" width="260" height="42"/>
+                                <rect key="frame" x="30" y="487" width="260" height="42"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.65098039215686276" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Upload Header Image and Youtube">
@@ -250,7 +240,11 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="saveProfileButton" destination="GB7-WE-1Fa" id="eDU-NL-p3d"/>
+                        <outlet property="bioTextField" destination="hKN-66-HsB" id="Dsc-VD-i4d"/>
+                        <outlet property="genreTextField" destination="kdP-lX-Mm0" id="A07-5V-Zo0"/>
+                        <outlet property="locationTextField" destination="IlA-tE-BBP" id="ZO4-2A-ElV"/>
+                        <outlet property="nameTextField" destination="NQy-uW-ZYA" id="kwR-5Z-Pme"/>
+                        <outlet property="priceTextField" destination="5VQ-Ok-mSt" id="FMa-ym-aIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJ0-hk-Y39" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,14 +263,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHn-JN-C3u">
-                                <rect key="frame" x="52" y="490" width="217" height="42"/>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Save Info">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-de-a0m">
                                 <rect key="frame" x="0.0" y="57" width="320" height="201"/>
                             </imageView>
@@ -291,22 +277,50 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We recommend a video of you or your band performing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-Wm-yU9">
-                                <rect key="frame" x="29" y="383" width="263" height="37"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please paste in a Youtube link." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWt-FC-K9P">
                                 <rect key="frame" x="56" y="357" width="208" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We recommend a video of you or your band performing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-Wm-yU9">
+                                <rect key="frame" x="29" y="383" width="263" height="37"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guS-kn-7lr">
+                                <rect key="frame" x="91" y="288" width="138" height="31"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.43137254901960786" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Upload Photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onUploadPhotoButton:" destination="RmP-mI-cQc" eventType="touchUpInside" id="D9r-st-hzZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB7-WE-1Fa">
+                                <rect key="frame" x="30" y="499" width="260" height="42"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.63921568627450975" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save Artist Profile">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSaveArtistProfileButton:" destination="RmP-mI-cQc" eventType="touchUpInside" id="OnY-Zk-TCq"/>
+                                    <segue destination="QwG-ax-YcX" kind="presentation" id="sQT-GJ-GXr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="headerImageView" destination="CKl-de-a0m" id="4Qh-tS-BcO"/>
+                        <outlet property="saveArtistProfileButton" destination="GB7-WE-1Fa" id="r5Q-MM-MNj"/>
+                        <outlet property="uploadPhotoButton" destination="guS-kn-7lr" id="N6c-AR-Wuf"/>
+                        <outlet property="youtubeLinkTextField" destination="f53-if-PTN" id="xYl-aG-uRu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBu-F6-ks4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -868,6 +882,6 @@
         <image name="troy_beme" width="5472" height="3648"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cV3-Ir-JkA"/>
+        <segue reference="sQT-GJ-GXr"/>
     </inferredMetricsTieBreakers>
 </document>

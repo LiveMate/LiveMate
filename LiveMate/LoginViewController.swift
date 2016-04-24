@@ -50,7 +50,6 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success {
                 print("Created a new user!")
-                print("Saving an object")
                 //let artist = ArtistData()
                 //artist.userCreatedArtistProfile()
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
