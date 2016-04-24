@@ -13,6 +13,7 @@ import Parse
 class ArtistData: NSObject {
     
     func userCreatedArtistProfile(location: String, price: String, name: String, genre: String, youtubeUrl: String!, bio:String, headerImage: UIImage) {
+        print("We in here!")
         let artist = PFObject(className: "ArtistData")
         let user = PFUser.currentUser()
         
@@ -42,16 +43,18 @@ class ArtistData: NSObject {
             if (success) {
                 // The object has been saved.
                 print("The user created an Artist profile!")
+                
+                user!["isArtist"] = true
+                //Create a reference from User object to ArtistData object
+                user!["artistReference"] = artist
+                user?.saveInBackground()
             } else {
                 // There was a problem, check error.description
                 print("Error in creating an artist profile")
             }
         }
         
-        user!["isArtist"] = true
-        //Create a reference from User object to ArtistData object
-        user!["artistReference"] = artist
-        user?.saveInBackground()
+
 
     }
     

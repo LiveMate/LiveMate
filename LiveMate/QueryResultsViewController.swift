@@ -37,7 +37,7 @@ class QueryResultsViewController: UIViewController, UITableViewDelegate, UITable
     func callParseBackend() {
         let query = PFQuery(className: "ArtistData")
         
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
         query.includeKey("author")
         query.limit = 20
         

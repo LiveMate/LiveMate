@@ -65,6 +65,7 @@ class ImageAndYoutubeViewController: UIViewController, UIImagePickerControllerDe
     
    
     @IBAction func onSaveArtistProfileButton(sender: AnyObject) {
+        
         print(self.location)
         print(self.price)
         print(self.name)
@@ -72,6 +73,7 @@ class ImageAndYoutubeViewController: UIViewController, UIImagePickerControllerDe
         print(self.youtubeLinkTextField.text)
         print(self.bio)
         artist.userCreatedArtistProfile(self.location, price: self.price, name: self.name, genre: self.genre, youtubeUrl: self.youtubeLinkTextField.text!, bio: bio, headerImage: headerImageView.image!)
+
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -92,14 +94,17 @@ class ImageAndYoutubeViewController: UIViewController, UIImagePickerControllerDe
     }
 
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
     }
+    */
     
 
 }
